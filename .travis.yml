@@ -11,7 +11,7 @@ matrix:
       services:
         - docker
       env:
-        - IMAGE_NAME=myorganization/hello
+        - IMAGE_NAME=testblogorganization/hello
         - REGISTRY_USER=testblogdeploy
         # REGISTRY_PASS=...
         - secure: "PMt0Y2cmVNEPbw7az9QajOYU4iPgidbuKxUn0n/In+i2AHZVGyYlTz/QAENLrheiz/Bndj8b9muuAiiKdC2EPohlhzfhXjV0CvS4Nf5ZsDQYBADKzaS0nNINXvxz2UDv6qXwumHoeCmhZSYH1dv/HspubaV5WLXeqC4PZLIqgS8CWMX1bdrJ8DQbXv76yLQ4jSgKrp9wYEt2x+MJJ9x0P4P/rnPSlouGcpaBCh9tksvemdJPnUy8C89wwHAw+KRflX1KvbfmKsSpBBCVHGOWFhkqLSXouk8aXIEN5GTrBoR4UFlRsPJ6kWXQsVgCk8JHcEGe361Osr+9vsOK8FSDsySl3TDYeTZY/3tKg4DUZFa+oAbcHVmh9M9sq0kMpG9WopIBF5YUoJYRa2WWsSqBnPimhtZOyBzi8CzEcniwjtJkRvtfdn+DJYSku5ZEzMq9sVHccGaEJ/rN4TB/CEtZauAXS51uNbn1GZg0CcdmPrjkQulXGvwXR/oXOdzCDOIZucqbmTeCeC0Pl3KoY/s869JdqvdERgslk3mKGhlvDATE9hKJ5NxZcrqYSt68JVUa8+ansQP3LWHaFtOLub/8KHTbpQgDCF53Ld5LjHDsdpmJPA9ZOC8vaybrGXQ+J2i79yLsK/tFefH2UN4yurrJe23BCPKNePKoeBYScE9WLaE="
@@ -33,9 +33,9 @@ matrix:
         provider: script
         script: |
           docker tag "$IMAGE_NAME" "${IMAGE_NAME}:develop"
-          docker tag "$IMAGE_NAME" "${IMAGE_NAME}:${git_sha}-develop"
-          docker push "${IMAGE_NAME}:develop"
-          docker push "${IMAGE_NAME}:${git_sha}-develop"
+          && docker tag "$IMAGE_NAME" "${IMAGE_NAME}:${git_sha}-develop"
+          && docker push "${IMAGE_NAME}:develop"
+          && docker push "${IMAGE_NAME}:${git_sha}-develop"
         on:
           branch: develop
 
