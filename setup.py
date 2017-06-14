@@ -12,7 +12,7 @@ def read(*parts):  # Stolen from txacme
 
 setup(
     name='blog-travis-docker',
-    version='0.1.0',
+    version='0.1.1',
     license='BSD-3-Clause',
     url='https://github.com/JayH5/blog-travis-docker-part2',
     description='Code for a blog post on using Docker with Travis CI',
