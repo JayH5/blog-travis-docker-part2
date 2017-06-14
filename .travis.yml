@@ -1,0 +1,21 @@
+language: python
+cache: pip
+
+matrix:
+  include:
+    - python: '2.7'
+    - python: '3.5'
+    - python: '3.6'
+
+install: pip install -r requirements-dev.txt
+
+script: pytest
+
+deploy:
+  provider: pypi
+  user: testblogdeploy
+  password:
+    secure: "PAqaRnLoHgY0dTbatXmXI1bH+2fpKcSw3+kpkHgg0dKexUvFF3Tsy5gpcQq/NY4t1sJTzGIt0oP2pho/Vl6Mx6Apwp9SStfNISJvLI3gkwsc1Yygsd4F8gG43u4bYwCchr6AwwxXZWO6DHiCkeaaS06+nVFB8TF1XTSkYGXOtIyCSQaK5q+/dSyDJv5WBFkw7uEOQKCKZLdBSsDAboCEHZb601EO13nrAgippfruuoogP1mVJ9thGCxDOBiccxJQJ7XFq/lBiXfzh6fkDC2DLlAeYQe+DcoJPo3d+CnRWDzFa5YysriIt0HF1/DVaTElJ7zV0tkQqrbrqOq+WbbrSm4TTmPzFGtJCx6SlXMYQ89tKHQBWwMV/EKv4f5orl3dkwifPpi5gIlS9Mnbrtb4sdQZfdU4NxXIJhyePZt6VVnXOtnK92D9pFHQnSfX5yfvIugDQTW1vB9QSVZyPIR1DwB2Bqoz86sFgjt0I+8g8Zj77QWwpMmBvmzECMBxcyjTiH5Nvb1U+InoTv980oILkdFxSLj19WQ+1iOVsNYq8FLot3srHg6GQIi5/fBnlix8aQU/P4SPyEzHCEL6UQVKRnp00UNlGgKnkuKlJ9C+o543V1W0LHE7Nv8uCGpoT28DCkeGjoZherkVGtv0j68sbGAJLIqpeGC2fJkJPHvk0bA="
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
